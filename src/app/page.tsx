@@ -10,19 +10,19 @@ const heroPanels = [
     title: "Wash & Fold",
     subtitle: "Everyday clothes, beautifully fresh.",
     text: "A clean, neat finish for the clothes you wear every day.",
-    image: "/images/diamond-shine-hero.webp",
+    image: "/images/diamond-shine-wash-fold.webp",
   },
   {
     title: "Dry Cleaning",
     subtitle: "Care for every special piece.",
     text: "Thoughtful cleaning for shirts, occasionwear, uniforms, and garments that need extra care.",
-    image: "/images/diamond-shine-about.webp",
+    image: "/images/diamond-shine-dry-cleaning.webp",
   },
   {
     title: "Steam Ironing",
     subtitle: "Crisp clothes. Confident days.",
     text: "A smooth, polished finish for workwear, dresses, linens, and more.",
-    image: "/images/diamond-shine-hero.webp",
+    image: "/images/diamond-shine-steam-ironing.webp",
   },
   {
     title: "FREE PICK UP & DELIVERY",

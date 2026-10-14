@@ -4,7 +4,7 @@ import BrandLogo from "@/components/brand/Logo";
 export default function Footer() {
   return (
     <footer className="bg-[#032d63] px-5 pb-8 pt-16 text-white sm:px-8 lg:px-12">
-      <div className="mx-auto grid max-w-7xl gap-12 border-b border-white/15 pb-12 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
+      <div className="mx-auto grid max-w-7xl gap-12 border-b border-white/15 pb-12 text-center md:grid-cols-2 md:text-left lg:grid-cols-12 lg:gap-8">
         <div className="min-w-0 lg:col-span-5">
           <div className="inline-block">
             <BrandLogo compact stroke />
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-3 pt-7 text-xs text-blue-200 sm:flex-row">
+      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 pt-7 text-center text-xs text-blue-200 md:flex-row md:text-left">
         <p>© 2026 Diamond Shine Laundry. All rights reserved.</p>
         <p>Karama, Dubai • UAE</p>
       </div>
