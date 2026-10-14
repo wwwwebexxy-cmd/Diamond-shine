@@ -1,26 +1,27 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function AboutPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-32 lg:px-12">
-      <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-        <div>
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4a7c59]">
-            About Terra
-          </p>
-          <h1 className="mt-6 font-serif text-5xl font-medium leading-tight text-[#2e3230] sm:text-6xl">
-            Building in harmony with the earth.
-          </h1>
-          <p className="mt-8 text-lg leading-relaxed text-[#646b66]">
-            We pair architectural mastery with ecological science to design spaces that give back more than they take. Every structure we create is a living system.
-          </p>
+    <section className="bg-[#f5faff] px-5 pb-24 pt-36 sm:px-8 lg:px-12 lg:pt-44">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+        <div className="relative h-[30rem] overflow-hidden rounded-[2rem] border-8 border-white bg-[#eaf5fc] shadow-[0_22px_50px_rgba(3,45,99,0.12)] sm:h-[38rem]">
+          <Image src="/images/diamond-shine-about.png" alt="Diamond Shine Laundry care team folding fresh laundry" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover object-center" />
         </div>
-        
-        {/* Image with continuous zoom in/out animation */}
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl">
-          <img
-            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
-            alt="Modern Biophilic Architecture"
-            className="h-full w-full object-cover animate-continuous-zoom will-change-transform"
-          />
+        <div className="min-w-0">
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#ef2a2a]">About Diamond Shine</p>
+          <h1 className="font-display mt-5 max-w-2xl text-5xl font-black leading-[1.02] tracking-[-0.05em] text-[#032d63] sm:text-7xl">
+            Clean clothes.<br /><span className="text-[#0a79cf]">Brighter days.</span>
+          </h1>
+          <p className="mt-7 max-w-xl text-lg leading-8 text-[#5c6d82]">
+            Diamond Shine Laundry is your local laundry care partner in Karama, Dubai, offering wash and fold, dry cleaning, steam ironing, bed linen, curtains, and hygienic finishing.
+          </p>
+          <p className="mt-4 max-w-xl leading-8 text-[#5c6d82]">
+            Our approach is simple: make laundry easier to manage, keep communication direct, and give every piece the care it needs.
+          </p>
+          <Link href="/#contact" className="mt-9 inline-flex rounded-full bg-[#ef2a2a] px-7 py-4 text-sm font-extrabold text-white transition hover:bg-[#d91f1f]">
+            Contact the team
+          </Link>
         </div>
       </div>
     </section>

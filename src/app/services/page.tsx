@@ -1,124 +1,37 @@
-"use client";
-
-import { useRef, useState, MouseEvent, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { services } from "@/data/services";
-import styles from "./page.module.css";
-
-function AnimatedCard({
-  service,
-  index,
-}: {
-  service: { title: string; description: string; image?: string };
-  index: number;
-}) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 });
-  const [isMounted, setIsMounted] = useState(false);
-
-  useEffect(() => {
-    // Simple staggered fade in
-    const timer = setTimeout(() => setIsMounted(true), index * 150);
-    return () => clearTimeout(timer);
-  }, [index]);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    
-    // Cursor position relative to card
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    // Percentage for glare
-    const xPct = (x / rect.width) * 100;
-    const yPct = (y / rect.height) * 100;
-    setGlarePosition({ x: xPct, y: yPct });
-
-    // Calculate rotation (-10 to 10 degrees)
-    const rotateX = ((y / rect.height) - 0.5) * -20;
-    const rotateY = ((x / rect.width) - 0.5) * 20;
-    setRotation({ x: rotateX, y: rotateY });
-  };
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setRotation({ x: 0, y: 0 });
-    setGlarePosition({ x: 50, y: 50 });
-  };
-
-  return (
-    <article
-      ref={cardRef}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={styles.card}
-      style={{
-        position: "relative",
-        overflow: "hidden",
-        transformStyle: "preserve-3d",
-        opacity: isMounted ? 1 : 0,
-        transform: isMounted 
-          ? `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg) scale3d(${isHovered ? 1.02 : 1}, ${isHovered ? 1.02 : 1}, ${isHovered ? 1.02 : 1}) translateY(${isHovered ? "-0.25rem" : "0"})` 
-          : "translateY(2rem)",
-        transition: isHovered 
-          ? "transform 0.1s ease-out" 
-          : "transform 0.5s ease-out, opacity 0.8s ease-out",
-        willChange: "transform",
-      }}
-    >
-      {/* Dynamic Glare Effect */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          pointerEvents: "none",
-          background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)`,
-          opacity: isHovered ? 1 : 0,
-          transition: "opacity 0.3s ease",
-          zIndex: 1,
-        }}
-      />
-      
-      <div style={{ position: "relative", zIndex: 2, transform: "translateZ(30px)", display: "flex", flexDirection: "column", height: "100%" }}>
-        {service.image && (
-          <div style={{ marginBottom: "1.5rem", height: "12rem", width: "100%", overflow: "hidden", borderRadius: "0.75rem" }}>
-            <img 
-              src={service.image} 
-              alt={service.title} 
-              style={{ 
-                height: "100%", 
-                width: "100%", 
-                objectFit: "cover", 
-                transition: "transform 0.5s ease",
-                transform: isHovered ? "scale(1.05)" : "scale(1)"
-              }}
-            />
-          </div>
-        )}
-        <h2 className={styles.cardTitle}>{service.title}</h2>
-        <p className={styles.cardCopy}>{service.description}</p>
-      </div>
-    </article>
-  );
-}
 
 export default function ServicesPage() {
   return (
-    <section className={styles.page}>
-      <p className={styles.eyebrow}>Services</p>
-      <h1 className={styles.title}>
-        A focused team for meaningful work.
-      </h1>
-      <div className={styles.grid}>
-        {services.map((service, index) => (
-          <AnimatedCard key={service.title} service={service} index={index} />
-        ))}
+    <section className="section-grid bg-[#f5faff] px-5 pb-24 pt-36 sm:px-8 lg:px-12 lg:pt-44">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid items-end gap-10 lg:grid-cols-[.85fr_1.15fr]">
+          <div className="min-w-0">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#ef2a2a]">Our services</p>
+            <h1 className="font-display mt-5 max-w-3xl text-5xl font-black leading-[1.02] tracking-[-0.05em] text-[#032d63] sm:text-7xl">
+              Care for the clothes and fabrics in your life.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#5c6d82]">
+              Choose the service that suits you best, then call or WhatsApp Diamond Shine Laundry for pickup and delivery in Karama.
+            </p>
+          </div>
+          <div className="relative h-64 min-w-0 overflow-hidden rounded-[2rem] border-8 border-white bg-[#eaf5fc] shadow-[0_18px_40px_rgba(3,45,99,0.12)] sm:h-80">
+            <Image src="/images/diamond-shine-services.png" alt="Fresh laundry, towels, and ironing care arranged in a modern studio" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center" />
+          </div>
+        </div>
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((service) => (
+            <article key={service.title} className="rounded-[1.7rem] border border-[#dce9f4] bg-white p-7 shadow-[0_10px_28px_rgba(3,45,99,0.05)]">
+              <p className="mt-8 text-xs font-extrabold uppercase tracking-[0.14em] text-[#0a79cf]">{service.kicker}</p>
+              <h2 className="font-display mt-2 text-2xl font-black text-[#032d63]">{service.title}</h2>
+              <p className="mt-3 leading-7 text-[#5c6d82]">{service.description}</p>
+            </article>
+          ))}
+        </div>
+        <Link href="/#contact" className="mt-10 inline-flex rounded-full bg-[#06458d] px-7 py-4 text-sm font-extrabold text-white transition hover:bg-[#032d63]">
+          Ask about pickup and delivery
+        </Link>
       </div>
     </section>
   );

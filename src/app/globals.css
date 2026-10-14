@@ -1,11 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --terra-ink: #2e3230;
-  --terra-muted: #646b66;
-  --terra-paper: #faf6f0;
-  --terra-surface: #f0ece4;
-  --terra-green: #4a7c59;
+  --navy: #06458d;
+  --navy-deep: #032d63;
+  --blue: #0a79cf;
+  --cyan: #12baf2;
+  --red: #ef2a2a;
+  --yellow: #ffd82e;
+  --ink: #102a4a;
+  --muted: #5c6d82;
+  --paper: #f5faff;
+  --line: #dce9f4;
 }
 
 * { box-sizing: border-box; }
@@ -14,61 +19,84 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--terra-paper);
-  color: var(--terra-ink);
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--paper);
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
 }
 
 button, input, textarea, select { font: inherit; }
-
 img { max-width: 100%; }
 
-@media (max-width: 374px) {
-  html, body { overflow-x: hidden; }
-
-  header > div:first-child {
-    height: 4rem !important;
-    gap: .75rem !important;
-    padding-inline: 1rem !important;
-  }
-
-  header > div:first-child > a > span:last-child {
-    font-size: 1.25rem !important;
-    letter-spacing: .16em !important;
-  }
-
-  main > div > section { padding-inline: 1rem !important; }
-  footer { padding-inline: 1rem !important; }
-  footer form { flex-wrap: wrap; }
-  footer form input, footer form button { width: 100%; }
-  footer form button { justify-content: center; }
-  footer p, footer a { overflow-wrap: anywhere; }
+::selection {
+  background: var(--cyan);
+  color: var(--navy-deep);
 }
 
+.font-display {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.section-grid {
+  background-image: linear-gradient(to right, rgba(6, 69, 141, 0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 69, 141, 0.055) 1px, transparent 1px);
+  background-size: 3.2rem 3.2rem;
+}
+
+.hero-glow {
+  background: radial-gradient(circle at 70% 18%, rgba(18, 186, 242, 0.24), transparent 32%),
+    radial-gradient(circle at 8% 76%, rgba(255, 216, 46, 0.17), transparent 23%);
+}
+
+.footer-logo-stroke {
+  filter: drop-shadow(1px 0 0 rgba(141, 226, 255, 0.95))
+    drop-shadow(-1px 0 0 rgba(141, 226, 255, 0.95))
+    drop-shadow(0 1px 0 rgba(141, 226, 255, 0.95))
+    drop-shadow(0 -1px 0 rgba(141, 226, 255, 0.95))
+    drop-shadow(0 0 5px rgba(141, 226, 255, 0.2));
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(1.75rem);
+  transition: opacity 1.15s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float-soft { animation: floatSoft 6s ease-in-out infinite; }
+
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes continuousZoom {
-  0%, 100% {
-    transform: scale(1);
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
-  50% {
-    transform: scale(1.1);
-  }
-}
 
-.animate-continuous-zoom {
-  animation: continuousZoom 15s ease-in-out infinite;
+  .scroll-reveal,
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

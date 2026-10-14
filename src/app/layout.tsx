@@ -5,9 +5,9 @@ import LoadingScreen from "@/components/LoadingScreen";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "TERRA | Biophilic Architecture",
+  title: "Diamond Shine Laundry | Clean Clothes, Brighter Days",
   description:
-    "Regenerative timber architecture and living interior ecosystems for a healthier planet.",
+    "Diamond Shine Laundry in Karama, Dubai. Wash and fold, dry cleaning, steam ironing, bed linen, curtains, and fresh hygienic laundry care.",
 };
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-[#faf6f0] text-[#2e3230] antialiased">
+      <body className="min-h-screen bg-[#f5faff] text-[#102a4a] antialiased">
         <LoadingScreen />
         <Header />
         <main>{children}</main>

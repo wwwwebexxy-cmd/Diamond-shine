@@ -1,17 +1,37 @@
 export const services = [
-  { 
-    title: "Strategy", 
-    description: "Turn a clear idea into a practical path forward.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80"
+  {
+    title: "Wash & Fold",
+    kicker: "Everyday essentials",
+    description: "A fresh, neat finish for the clothes your family reaches for every day.",
+    icon: "wash",
+    image: "/images/diamond-shine-hero.png",
   },
-  { 
-    title: "Design", 
-    description: "Shape thoughtful experiences people want to use.",
-    image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?auto=format&fit=crop&w=800&q=80"
+  {
+    title: "Dry Cleaning",
+    kicker: "Care for special pieces",
+    description: "Thoughtful cleaning for shirts, occasionwear, uniforms, and garments that need extra care.",
+    icon: "shirt",
+    image: "/images/diamond-shine-about.png",
   },
-  { 
-    title: "Development", 
-    description: "Build fast, accessible products that last.",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+  {
+    title: "Steam Ironing",
+    kicker: "Crisp and ready",
+    description: "Smooth, polished presentation for workwear, dresses, linens, and more.",
+    icon: "iron",
+    image: "/images/diamond-shine-hero.png",
   },
-];
+  {
+    title: "Bed Linen & Curtains",
+    kicker: "A cleaner home",
+    description: "Bring a bright, hygienic feel to the larger fabrics around your home.",
+    icon: "home",
+    image: "/images/diamond-shine-about.png",
+  },
+  {
+    title: "Fresh & Hygienic",
+    kicker: "The Diamond Shine finish",
+    description: "Reliable laundry care with a clean, fresh result you can feel every time.",
+    icon: "sparkle",
+    image: "/images/diamond-shine-hero.png",
+  },
+] as const;
