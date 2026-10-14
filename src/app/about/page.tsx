@@ -1,12 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Diamond Shine Laundry in Karama, Dubai",
+  description: "Learn about Diamond Shine Laundry, your local laundry care partner for wash and fold, dry cleaning, ironing, bed linen, curtains, and hygienic finishing in Karama, Dubai.",
+  alternates: { canonical: "/about" },
+};
 
 export default function AboutPage() {
   return (
     <section className="bg-[#f5faff] px-5 pb-24 pt-36 sm:px-8 lg:px-12 lg:pt-44">
       <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
         <div className="relative h-[30rem] overflow-hidden rounded-[2rem] border-8 border-white bg-[#eaf5fc] shadow-[0_22px_50px_rgba(3,45,99,0.12)] sm:h-[38rem]">
-          <Image src="/images/diamond-shine-about.png" alt="Diamond Shine Laundry care team folding fresh laundry" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover object-center" />
+          <Image src="/images/diamond-shine-about.webp" alt="Diamond Shine Laundry care team folding fresh laundry" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover object-center" />
         </div>
         <div className="min-w-0">
           <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#ef2a2a]">About Diamond Shine</p>

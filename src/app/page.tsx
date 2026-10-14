@@ -10,34 +10,34 @@ const heroPanels = [
     title: "Wash & Fold",
     subtitle: "Everyday clothes, beautifully fresh.",
     text: "A clean, neat finish for the clothes you wear every day.",
-    image: "/images/diamond-shine-hero.png",
+    image: "/images/diamond-shine-hero.webp",
   },
   {
     title: "Dry Cleaning",
     subtitle: "Care for every special piece.",
     text: "Thoughtful cleaning for shirts, occasionwear, uniforms, and garments that need extra care.",
-    image: "/images/diamond-shine-about.png",
+    image: "/images/diamond-shine-about.webp",
   },
   {
     title: "Steam Ironing",
     subtitle: "Crisp clothes. Confident days.",
     text: "A smooth, polished finish for workwear, dresses, linens, and more.",
-    image: "/images/diamond-shine-hero.png",
+    image: "/images/diamond-shine-hero.webp",
   },
   {
-    title: "Pickup & Delivery",
+    title: "FREE PICK UP & DELIVERY",
     subtitle: "Your laundry, our priority.",
-    text: "Call Diamond Shine Laundry in Karama, Dubai to ask about pickup and delivery.",
-    image: "/images/diamond-shine-hero.png",
+    text: "Enjoy convenient free pickup and delivery from Diamond Shine Laundry in Karama, Dubai.",
+    image: "/images/diamond-shine-pickup-delivery.webp",
   },
 ] as const;
 
 const pillars = [
-  ["Reliable service", "Simple communication and dependable care for your everyday laundry."],
-  ["Quality care", "Wash, dry clean, iron, and finish each item for the service it needs."],
-  ["On-time delivery", "A more convenient laundry routine with pickup and delivery support."],
-  ["Customer satisfaction", "Fresh, hygienic results and a bright, polished finish."],
-];
+  { title: "Reliable service", text: "Simple communication and dependable care for your everyday laundry.", icon: "shield" },
+  { title: "Quality care", text: "Wash, dry clean, iron, and finish each item for the service it needs.", icon: "leaf" },
+  { title: "On-time delivery", text: "A more convenient laundry routine with pickup and delivery support.", icon: "clock" },
+  { title: "Customer satisfaction", text: "Fresh, hygienic results and a bright, polished finish.", icon: "thumbs-up" },
+] as const;
 
 export default function Home() {
   const [activeCol, setActiveCol] = useState(0);
@@ -83,7 +83,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="relative min-w-0 lg:col-span-6">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] border-8 border-[#eaf5fc] shadow-[0_20px_45px_rgba(3,45,99,0.14)]">
-              <Image src="/images/diamond-shine-about.png" alt="Diamond Shine Laundry care team folding fresh laundry" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
+              <Image src="/images/diamond-shine-about.webp" alt="Diamond Shine Laundry care team folding fresh laundry" fill sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover" />
             </div>
             <div className="absolute -bottom-5 -right-3 rounded-2xl bg-[#ffd82e] px-5 py-4 shadow-xl sm:-right-6">
               <p className="font-display text-2xl font-black text-[#032d63]">Shine on</p>
@@ -164,9 +164,9 @@ export default function Home() {
           </div>
           <div className="grid gap-10 lg:grid-cols-12">
             <div className="flex flex-col gap-4 lg:col-span-7">
-              {pillars.map(([title, text]) => (
+              {pillars.map(({ title, text, icon }) => (
                 <div key={title} className="flex items-start gap-5 rounded-2xl border border-[#dce9f4] bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#06458d] text-lg font-black text-[#ffd82e]">✓</div>
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#06458d] text-[#ffd82e]"><PillarIcon name={icon} /></div>
                   <div>
                     <h3 className="font-display text-xl font-black text-[#032d63]">{title}</h3>
                     <p className="mt-1 text-sm leading-relaxed text-[#5c6d82]">{text}</p>
@@ -227,12 +227,22 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="relative min-h-[20rem] min-w-0 overflow-hidden rounded-[2rem] bg-[#eaf5fc] sm:min-h-[24rem] lg:col-span-7">
-              <Image src="/images/diamond-shine-hero.png" alt="Fresh folded laundry in a modern laundry studio" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#032d63]/80 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/30 bg-[#032d63]/85 p-5 text-white backdrop-blur-md sm:bottom-8 sm:left-8 sm:right-8">
-                <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#8de2ff]">Clean clothes. Brighter days.</p>
-                <p className="mt-2 font-display text-2xl font-black">Diamond Shine Laundry</p>
+            <div className="relative min-h-[20rem] min-w-0 overflow-hidden rounded-[2rem] border-8 border-[#eaf5fc] bg-[#eaf5fc] shadow-[0_18px_40px_rgba(3,45,99,0.12)] sm:min-h-[24rem] lg:col-span-7">
+              <iframe
+                title="Diamond Shine Laundry location map"
+                src="https://www.google.com/maps?q=Al+Kifaf+Building+Street+4b+Karama+Dubai&output=embed"
+                className="absolute inset-0 h-full w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="absolute bottom-4 left-4 right-4 z-10 flex flex-col gap-3 rounded-2xl border border-white/30 bg-[#032d63]/90 p-4 text-white shadow-lg backdrop-blur-md sm:bottom-6 sm:left-6 sm:right-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#8de2ff]">Find us</p>
+                  <p className="mt-1 text-sm font-bold">Al Kifaf Building, Street 4b, Karama, Dubai</p>
+                </div>
+                <a href="https://maps.app.goo.gl/paTtujiMPW89rD1c8" target="_blank" rel="noreferrer" className="inline-flex shrink-0 items-center justify-center rounded-full bg-[#ffd82e] px-4 py-2.5 text-xs font-extrabold text-[#032d63] transition hover:bg-[#ffe66c]">
+                  Open map
+                </a>
               </div>
             </div>
           </div>
@@ -241,6 +251,33 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+function PillarIcon({ name }: { name: "shield" | "leaf" | "clock" | "thumbs-up" }) {
+  const commonProps = {
+    viewBox: "0 0 24 24",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.9,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true,
+    className: "h-6 w-6",
+  };
+
+  if (name === "shield") {
+    return <svg {...commonProps}><path d="M12 3 20 6v5c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6l8-3Z" /><path d="m8.5 12 2.2 2.2 4.8-5" /></svg>;
+  }
+
+  if (name === "leaf") {
+    return <svg {...commonProps}><path d="M20 4C10.5 4 5 8.5 5 15c0 2.8 2.2 5 5 5 6.5 0 10-6.7 10-16Z" /><path d="M4 21c2.5-4.3 5.8-7.6 10-10" /></svg>;
+  }
+
+  if (name === "clock") {
+    return <svg {...commonProps}><circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3.2 2" /><path d="M5 4.5 3.5 6M19 4.5 20.5 6" /></svg>;
+  }
+
+  return <svg {...commonProps}><path d="M7.5 10.5V8.2a1.7 1.7 0 0 1 3.4 0v2.3" /><path d="M10.9 10.5V6.8a1.7 1.7 0 0 1 3.4 0v3.7" /><path d="M14.3 10.5V8.1a1.7 1.7 0 0 1 3.4 0v5.5c0 3.2-2.2 5.4-5.4 5.4H9.8c-1.4 0-2.7-.7-3.4-1.8L4.1 13a1.6 1.6 0 0 1 2.8-1.6l1.3 1.9" /></svg>;
 }
 
 function Badge({ children }: { children: React.ReactNode }) {

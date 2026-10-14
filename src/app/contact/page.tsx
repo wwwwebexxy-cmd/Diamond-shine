@@ -1,3 +1,11 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Diamond Shine Laundry in Karama, Dubai",
+  description: "Contact Diamond Shine Laundry at Al Kifaf Building, Street 4b, Karama, Dubai for laundry service, free pickup, and delivery enquiries.",
+  alternates: { canonical: "/contact" },
+};
+
 export default function ContactPage() {
   return (
     <section className="bg-[#eaf5fc] px-5 pb-24 pt-36 sm:px-8 lg:px-12 lg:pt-44">

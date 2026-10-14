@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function BrandLogo({ compact = false, stroke = false }: { compact?: boolean; stroke?: boolean }) {
   return (
     <Image
-      src="/images/diamond-shine-logo-transparent.png"
+      src="/images/diamond-shine-logo-transparent.webp"
       alt="Diamond Shine Laundry"
       width={compact ? 180 : 260}
       height={compact ? 120 : 174}

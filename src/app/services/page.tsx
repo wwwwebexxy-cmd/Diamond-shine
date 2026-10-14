@@ -1,6 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { services } from "@/data/services";
+
+export const metadata: Metadata = {
+  title: "Laundry Services in Karama, Dubai",
+  description: "Explore Diamond Shine Laundry services in Karama, Dubai: wash and fold, dry cleaning, steam ironing, bed linen, curtains, hygienic care, and free pickup and delivery.",
+  alternates: { canonical: "/services" },
+};
 
 export default function ServicesPage() {
   return (
@@ -17,7 +24,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="relative h-64 min-w-0 overflow-hidden rounded-[2rem] border-8 border-white bg-[#eaf5fc] shadow-[0_18px_40px_rgba(3,45,99,0.12)] sm:h-80">
-            <Image src="/images/diamond-shine-services.png" alt="Fresh laundry, towels, and ironing care arranged in a modern studio" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center" />
+            <Image src="/images/diamond-shine-services.webp" alt="Fresh laundry, towels, and ironing care arranged in a modern studio" fill sizes="(min-width: 1024px) 55vw, 100vw" className="object-cover object-center" />
           </div>
         </div>
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
